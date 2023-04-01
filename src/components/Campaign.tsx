@@ -66,6 +66,7 @@ function Campaign({ projectNumber }: CampaignProps) {
         </div>
 
         <div className="flex justify-around items-center py-2">
+        <a href="Untitled-1.pdf" download="xyz">download me
           <button
             className="flex-shrink-0  text-lg text-white py-1 px-12 rounded-3xl"
             type="button"
@@ -74,7 +75,7 @@ function Campaign({ projectNumber }: CampaignProps) {
           >
            &nbsp; &nbsp; &nbsp; Download Proof &nbsp; &nbsp; &nbsp;
           </button>
-          
+          </a>
         </div>
 
         {/* if error occures display text to try again */}
