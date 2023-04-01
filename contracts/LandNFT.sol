@@ -9,18 +9,19 @@ contract LandNFT is ERC721 {
     Counters.Counter private _tokenIds;
 
     struct Land {
-        uint256[4] coordinates;
+        string[4] coordinates;
         string ownerName;
+        string aadhaar;
     }
 
     mapping(uint256 => Land) private _lands;
 
     constructor() ERC721("LandNFT", "LND") {}
 
-    function mintLandNFT(uint256[4] memory coordinates, string memory ownerName) public returns (uint256) {
+    function mintLandNFT(string[4] memory coordinates, string memory ownerName, string memory aadhaar) public returns (uint256) {
         _tokenIds.increment();
         uint256 tokenId = _tokenIds.current();
-        _lands[tokenId] = Land(coordinates, ownerName);
+        _lands[tokenId] = Land(coordinates, ownerName, aadhaar);
         _safeMint(msg.sender, tokenId);
         return tokenId;
     }
@@ -29,11 +30,15 @@ contract LandNFT is ERC721 {
     //     return _tokenIds;
     // }
 
-    function getLandCoordinates(uint256 tokenId) public view returns (uint256[4] memory) {
+    function getLandCoordinates(uint256 tokenId) public view returns (string[4] memory) {
         return _lands[tokenId].coordinates;
     }
 
     function getLandOwnerName(uint256 tokenId) public view returns (string memory) {
         return _lands[tokenId].ownerName;
+    }
+
+    function getAadhaar(uint256 tokenId) public view returns (string memory) {
+        return _lands[tokenId].aadhaar;
     }
 }

@@ -25,7 +25,7 @@ const Navbar = () => {
               </a>
             </NavItems>
             <NavItems>
-              <a href="/">
+              <a href="/Campaigns">
                 <NavItem style={{color: "#ffffff"}}>My Properties</NavItem>
               </a>
             </NavItems>
