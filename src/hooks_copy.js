@@ -1,7 +1,7 @@
 import NFTCONTRACT_ABI from './abis/nftcontractabi.json'
 import { FACTORY_CONTRACT_ADDRESS } from "./constants";
 import { ethers } from "ethers";
-import image from "../image2.jpeg"
+import image from "../download.jpeg"
 import { NFTStorage, File } from "nft.storage"
 import { useWaitForTransaction } from 'wagmi';
 
