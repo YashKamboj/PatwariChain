@@ -1,36 +1,12 @@
-import Img from "./mintbg.jpeg";
-
 function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, image}) {
-  // const publishedProjsAddress = usePublishedProjs(projectNumber);
-  // const projTitle = useProjTitle(publishedProjsAddress || "");
-  // const projDescription = useProjDescription(publishedProjsAddress || "");
-  // const goalAmount = useGoalAmount(publishedProjsAddress || "");
-  // const raisedAmount = useRaisedAmount(publishedProjsAddress || "");
-
-  // custom hook we made in hooks.ts for writing functions
-  // const { writeAsync, isError } = useCrowdfundingProjectFunctionWriter({
-  //   contractAddress: publishedProjsAddress || "",
-  //   functionName: "makeDonation",
-  // });
-
-  // if (
-  //   !publishedProjsAddress ||
-  //   !projTitle ||
-  //   !projDescription ||
-  //   !goalAmount ||
-  //   !raisedAmount
-  // ) {
-  //   return null;
-  // }
   
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img src={image} />
+        <img style={{width:"25rem", height: "25rem"}} src={image} />
         <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{title}</div>
       </div>
       <div style={{width: "4.5rem", position: "absolute"}}>
-
 </div>
       <div className="px-7  pt-4 pb-2">
         <div className="flex">
@@ -57,7 +33,7 @@ function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, im
         </div>
 
         <div className="flex justify-around items-center py-2">
-        <a href="Untitled-1.pdf" download="xyz">
+        <a href="Untitled-1.pdf" download = {`Baljeet NFT`} >
           <button
             className="flex-shrink-0  text-lg text-white py-1 px-12 rounded-3xl"
             type="button"
@@ -69,13 +45,6 @@ function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, im
           </a>
           
         </div>
-
-        {/* if error occures display text to try again */}
-        {/* {isError && (
-          <p className="text-red-500 text-xs italic">
-            Error occured! Please try again!.
-          </p>
-        )} */}
       </div>
     </div>
   );
