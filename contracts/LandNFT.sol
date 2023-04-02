@@ -15,6 +15,8 @@ contract LandNFT is ERC721 {
     }
 
     mapping(uint256 => Land) private _lands;
+        Land[] public NFTDetailsList;
+
 
     constructor() ERC721("LandNFT", "LND") {}
 
@@ -24,6 +26,11 @@ contract LandNFT is ERC721 {
         _lands[tokenId] = Land(coordinates, ownerName, aadhaar);
         _safeMint(msg.sender, tokenId);
         return tokenId;
+    }
+
+     function getAllNFTDetails() public view returns(Land[] memory) {
+        return NFTDetailsList;
+        
     }
 
     // function getTotalNumber() public view returns (uint256){

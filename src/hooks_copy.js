@@ -61,12 +61,14 @@ export const fetchNFTs = async () => {
       const owner = await contract.ownerOf(i).call();
       const coordinates = await contract.getLandCoordinates(i);
       const ownerName = await contract.getLandOwnerName(i);
+      const aadhaar = await contract.getAadhaar(i);
   
       nfts.push({
         tokenId: i,
         owner,
         coordinates,
-        ownerName
+        ownerName,
+        aadhaar
       });
     }
   
