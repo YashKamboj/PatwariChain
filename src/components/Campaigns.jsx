@@ -48,7 +48,7 @@ function Campaigns() {
        {data.map((nft) => {
             return (
               <div >
-                <Campaign title={nft.ownerName} image={nft.image} Coordinate1={nft.coordinates[0]} Coordinate2={nft.coordinates[1]} Coordinate3={nft.coordinates[2]} Coordinate4={nft.coordinates[3]} />
+                <Campaign title={nft.title} image={nft.image} Coordinate1={nft.coordinates[0]} Coordinate2={nft.coordinates[1]} Coordinate3={nft.coordinates[2]} Coordinate4={nft.coordinates[3]} />
 
               </div>
             );
