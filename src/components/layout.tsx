@@ -1,6 +1,5 @@
 import React, { useState, ReactNode  } from 'react';
 import Navbar from './nav';
-import Footer from './footer';
 
 interface Props {
     children?: ReactNode

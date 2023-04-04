@@ -6,8 +6,6 @@ import { NFTStorage, File } from "nft.storage"
 
 const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRhRWRCMzQzNEJjN2I5RTRBOTQzMjBENjgwMGFGNzdkMEM0RmU4MDEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4MDM0Mzc3ODY0NCwibmFtZSI6IlBhdHdhcmlDaGFpbiJ9.ah9oBmBMhM0GAfsaolbH0VeNpe8N02x1c9SGg1UwjjE"
 
-
-
 const getNFTContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
