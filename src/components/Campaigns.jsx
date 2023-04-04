@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useTotalPublishedProjs } from "../read";
 import { fetchNFTs } from  "../hooks_copy"
 import Campaign from "./Campaign";
 import img1 from "../../image1.jpeg"
@@ -8,7 +7,6 @@ import img3 from "../../download.jpeg"
 
 
 function Campaigns() {
-  // const totalPublishedProjs = useTotalPublishedProjs();
   const [nfts, setNFTs] = useState([]);
 
   const data = [

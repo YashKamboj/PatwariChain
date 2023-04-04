@@ -3,12 +3,6 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import styled from "styled-components";
-// import { useCrowdfundingProjectFunctionWriter } from "../../hooks";
-// import {
-//   usePublishedProjs,
-// } from "../../read";
-// import { useAddRecentTransaction } from "@rainbow-me/rainbowkit";
-// import {toWei } from "../../utils"; 
 import {storeAsset} from "../../hooks_copy"
 
 const HeroSection = () => {
@@ -26,8 +20,6 @@ const HeroSection = () => {
   const handleOwnerNameChange = (e) => {
     setOwnerName(e.target.value);
   };
-
-  
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -166,6 +158,17 @@ const HeroSection = () => {
                   label="Coordinate 4:"
                   value={coordinates[3]}
                   onChange={(e) => handleInputChange(e, 3)}
+                  variant="outlined"
+                />
+                <TextField
+                  InputLabelProps={{
+                    style: labelStyle,
+                  }}
+                  InputProps={{
+                    style: inputStyle,
+                  }}
+                  id="filled-basic"
+                  label="Aadhar Number"
                   variant="outlined"
                 />
               </div>
