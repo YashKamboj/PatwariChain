@@ -45,27 +45,27 @@ const HeroSection = () => {
      <p>Normal property papers or land titles are often paper-based and can be easily tampered with or lost, leading to disputes over land ownership.</p>
     </div>
     <div className='image-content'>
-      <img src="image1.jpeg" height={'200px'} width={'400px'}/>
+      <img src="image1.jpeg" style={{height:'300px', width:'350px'}}/>
     </div>
     </div>
 
     <div className='flex-container1'>
-    <div className='text-content1'>
-    <img src="image1.jpeg" height={'200px'} width={'400px'}/>
+    <div className='text-content1' style={{padding:''}}>
+    <img src="image3.jpg" height={'200px'} width={'400px'} />
     </div>
     <div className='image-content1'>
-    <h1>The Problem with existing Methods:</h1>
+    <h1>Solution we offer:</h1>
      <p>Our solution using NFTs and blockchain technology creates a tamper-proof record of land ownership that is transparent, accessible, and secure. This ensures that the land ownership record cannot be disputed easily and can be easily accessed and verified by farmers and other stakeholders.</p>
     </div>
     </div>
 
     <div className='flex-container'>
     <div className='text-content'>
-     <h1>The Problem with existing Methods:</h1>
+     <h2>Why us?</h2>
      <p> Additionally, our solution allows for easy transfer of ownership, reduces the time and cost associated with land transactions, and potentially opens up new financial opportunities for farmers.</p>
     </div>
     <div className='image-content'>
-      <img src="image1.jpeg" height={'200px'} width={'400px'}/>
+      <img src="image4.jpg" height={'200px'} width={'400px'}/>
     </div>
     </div>
     </Wrapper1>
@@ -102,6 +102,10 @@ const Wrapper = styled.div`
   background-size: cover;
   margin-top: 0rem;
   
+img{
+  border-radius: 15px;
+}
+
   .flex-container{
   display: flex;
   }
@@ -113,6 +117,12 @@ const Wrapper = styled.div`
     font-weight: 600;
     font-size: 2rem;
     padding: 10rem 2rem 0.5rem 15rem;
+    }
+
+  h2{
+    font-weight: 600;
+    font-size: 2rem;
+    padding: 7rem 2rem 0.5rem 15rem;
     }
   
     p{
@@ -139,7 +149,7 @@ const Wrapper = styled.div`
   h1{
     font-weight: 600;
     font-size: 2rem;
-    padding: 10rem 2rem 0.5rem 2rem;
+    padding: 3.5rem 2rem 0.5rem 2rem;
     }
     
     p{
