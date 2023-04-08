@@ -8,6 +8,7 @@ import {storeAsset} from "../../hooks_copy"
 const HeroSection = () => {
   const [coordinates, setCoordinates] = useState(["", "", "", ""]);
   const [ownerName, setOwnerName] = useState("");
+  const [aadhar, setAadhar] = useState("")
   const [image, setImage] = useState();
   const [imagePreview, setImagePreview] = useState("");
 
@@ -19,6 +20,10 @@ const HeroSection = () => {
 
   const handleOwnerNameChange = (e) => {
     setOwnerName(e.target.value);
+  };
+  
+  const handleAadhar = (e) => {
+    setAadhar(e.target.value);
   };
 
   // const handleSubmit = async (e) => {
@@ -54,7 +59,7 @@ const HeroSection = () => {
   };
   
   const handleDonate = async (e) => {
-    await storeAsset(coordinates[0],coordinates[1], coordinates[2], coordinates[3], ownerName )
+    await storeAsset(ownerName, coordinates[0],coordinates[1], coordinates[2], coordinates[3], aadhar )
     // await mintNFT()
     // ownerName ,coordinates[0],coordinates[1], coordinates[2], coordinates[3]
     console.log("done")
@@ -168,6 +173,8 @@ const HeroSection = () => {
                     style: inputStyle,
                   }}
                   id="filled-basic"
+                  value={aadhar}
+                  onChange={(e) => handleAadhar(e, 3)}
                   label="Aadhar Number"
                   variant="outlined"
                 />

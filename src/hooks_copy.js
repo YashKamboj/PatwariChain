@@ -15,14 +15,14 @@ const getNFTContract = () => {
 
 const nftC=getNFTContract()
 
-export async function storeAsset(name, coordinates1, coordinates2, coordinates3, coordinates4, image1) {
+export async function storeAsset(name, coordinates1, coordinates2, coordinates3, coordinates4, aadhar) {
   const client = new NFTStorage({ token: API_KEY })
   const metadata = await client.store({
-      name: 'Baljeet singh',
+      name: name,
       description: 'My ExampleNFT is an awesome artwork!',
-      aadhaar: "344393482492",
+      aadhaar: aadhar,
       image: image && new File([image], `image.jpg`, { type: 'image/jpg' }),
-      coordinates: ["41 52.6813, 2 43.1460", "41 81.3659, 2 02.5167", "41 72.3928, 3 70.3410", "41 62.9018, 2 80.4418"]
+      coordinates: [coordinates1, coordinates2, coordinates3, coordinates4]
   })
   
   
@@ -44,32 +44,48 @@ const signer = provider.getSigner();
 const contract = new ethers.Contract(FACTORY_CONTRACT_ADDRESS, NFTCONTRACT_ABI, signer);
 
 
-// function makeStorageClient () {
-//   return new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDlBYzVlOTc3NDFhNDU1ZDEyYzJiNzA5NzBDMTNmYzMxY0VBNDE4M0UiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODAzMzQ1MTU1MjEsIm5hbWUiOiJQYXR3YXJpQ2hhaW4ifQ.y-RBOiIIQVIiZTvSyCiioff0drC8qTE6XmAaKaQp1Fg" })
-// }
-
-
 export const fetchNFTs = async () => {
     
-    const totalSupply = await contract.totalSupply().call();
+    // const totalSupply = await contract.totalSupply().call();
   
-    const nfts = [];
-    for (let i = 1; i <= totalSupply; i++) {
-      const owner = await contract.ownerOf(i).call();
-      const coordinates = await contract.getLandCoordinates(i);
-      const ownerName = await contract.getLandOwnerName(i);
-      const aadhaar = await contract.getAadhaar(i);
+    // const nfts = [];
+    // for (let i = 1; i <= totalSupply; i++) {
+    //   const owner = await contract.ownerOf(i).call();
+    //   const coordinates = await contract.getLandCoordinates(i);
+    //   const ownerName = await contract.getLandOwnerName(i);
+    //   const aadhaar = await contract.getAadhaar(i);
   
-      nfts.push({
-        tokenId: i,
-        owner,
-        coordinates,
-        ownerName,
-        aadhaar
-      });
-    }
+    //   nfts.push({
+    //     tokenId: i,
+    //     owner,
+    //     coordinates,
+    //     ownerName,
+    //     aadhaar
+    //   });
+    // }
   
-    return nfts;
+    // return nfts;
+    // const nftC=getNFTContract();
+    //     const data=await nftC.getAllNFTDetails();
+    //     const aNFTS=data.map(d=>({
+    //       owner:d.ownerName,
+
+    //     }))
+    //     console.log(aNFTS.owner + "qwewew")
+        // setAllNFT(aNFTS)
+        // return aNFTS;
+
+        const userAddress = await signer.getAddress();
+        const balance = await nftC.balanceOf(userAddress);
+        const nfts = [];
+
+        for (let i = 0; i < balance.toNumber(); i++) {
+          const tokenId = await contract.tokenOfOwnerByIndex(userAddress, i);
+          const tokenURI = await contract.tokenURI(tokenId);
+          nfts.push({ tokenId: tokenId.toString(), tokenURI });
+        }
+        
+        return nfts;
   };
 
 
