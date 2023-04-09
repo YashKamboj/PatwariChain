@@ -1,4 +1,4 @@
-function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, image}) {
+function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, image, pdf}) {
   
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -33,7 +33,7 @@ function Campaign({title, Coordinate1, Coordinate2, Coordinate3, Coordinate4, im
         </div>
 
         <div className="flex justify-around items-center py-2">
-        <a href="Final.pdf" download = {`Baljeet NFT`} >
+        <a href= {pdf} download = {`${title} NFT`} >
           <button
             className="flex-shrink-0  text-lg text-white py-1 px-12 rounded-3xl"
             type="button"

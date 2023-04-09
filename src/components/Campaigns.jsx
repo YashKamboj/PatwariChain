@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 // import { fetchNFTs } from  "../hooks_copy"
 import Campaign from "./Campaign";
 import img1 from "../../image1.jpeg"
-import img2 from "../../image2.jpeg"
-import img3 from "../../download.jpeg"
+import img3 from "../../image2.jpeg"
+import img2 from "../../farmer2.jpg"
 import { ethers } from 'ethers';
 
 import NFTCONTRACT_ABI from '../abis/nftcontractabi.json'
@@ -34,19 +34,25 @@ function Campaigns() {
 
   const data = [
     {
+      id: 1,
       title: "Baljeet singh",
       coordinates: ["41 52.6813, 2 43.1460", "41 81.3659, 2 02.5167", "41 72.3928, 3 70.3410", "41 62.9018, 2 80.4418"],
-      image: img1
+      image: img1,
+      pdf: "Final.pdf"
     },
     {
-        title: "Babu Ram",
+      id: 2,
+        title: "Ram Singh",
         coordinates: ["41 52.6813, 2 43.1460", "41 81.3659, 2 02.5167", "41 72.3928, 3 70.3410", "41 62.9018, 2 80.4418"],
-        image: img2
+        image: img2,
+        pdf: "Farmer2.pdf"
       },
     {
-        title: "Babu Ram 1",
+      id: 3,
+        title: "Balram Singh",
         coordinates: ["41 52.6813, 2 43.1460", "41 81.3659, 2 02.5167", "41 72.3928, 3 70.3410", "41 62.9018, 2 80.4418"],
-        image: img3
+        image: img3,
+        pdf: "Farmer3.pdf"
     }
 ]
 
@@ -72,7 +78,7 @@ function Campaigns() {
        {data.map((nft) => {
             return (
               <div >
-                <Campaign title={nft.title} image={nft.image} Coordinate1={nft.coordinates[0]} Coordinate2={nft.coordinates[1]} Coordinate3={nft.coordinates[2]} Coordinate4={nft.coordinates[3]} />
+                <Campaign id={nft.id} pdf={nft.pdf} title={nft.title} image={nft.image} Coordinate1={nft.coordinates[0]} Coordinate2={nft.coordinates[1]} Coordinate3={nft.coordinates[2]} Coordinate4={nft.coordinates[3]} />
 
               </div>
             );
